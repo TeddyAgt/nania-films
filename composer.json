@@ -1,0 +1,17 @@
+{
+    "name": "teddy/nania-films",
+    "description": "Site Web de Nania Films (Production de films)",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "App\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "TeddyAgt",
+            "email": "teddy.aboim@gmail.com"
+        }
+    ],
+    "require": {}
+}

@@ -1,0 +1,9 @@
+.env
+.env.dev
+vendor/
+profile-picture.jpg
+phpcs.xml
+test.php
+videos/
+.VSCodeCounter/
+DotEnv.php
