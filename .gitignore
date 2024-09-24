@@ -5,5 +5,7 @@ profile-picture.jpg
 phpcs.xml
 test.php
 videos/
+images/
 .VSCodeCounter/
 DotEnv.php
+create_db*

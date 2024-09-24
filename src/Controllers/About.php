@@ -4,8 +4,5 @@ namespace App\Controllers;
 
 class About
 {
-    public function index()
-    {
-        // 
-    }
+    public function index() {}
 }

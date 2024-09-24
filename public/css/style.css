@@ -75,7 +75,7 @@ body {
 }
 
 section {
-    margin-bottom: 64px;
+    margin-bottom: 128px;
 }
 
 h1,
@@ -110,7 +110,7 @@ body {
 }
 
 section {
-    margin-bottom: 64px;
+    margin-bottom: 128px;
 }
 
 h1,
@@ -130,6 +130,12 @@ h4 {
 input:not([type="checkbox"], [type="radio"]),
 textarea {
     padding: 8px;
+}
+
+@media screen and (max-width: 1000px) {
+    section {
+        margin-bottom: 64px;
+    }
 }
 
 /* Theme */
