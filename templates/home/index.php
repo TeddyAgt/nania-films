@@ -28,13 +28,13 @@
     <?php foreach ($lastProductions as $production) : ?>
         <article class="movie-article">
             <div class="movie-article__thumb">
-                <img src="public/assets/images/thumbs/<?= $production->thumb; ?>" alt="">
+                <img src="public/assets/images/thumbs/<?= $production->content->thumb; ?>" alt="">
             </div>
 
             <div class="movie-article__content">
                 <h3 class="article-title"><?= $production->title; ?></h3>
-                <p class="movie-article__details details"><?= $production->details; ?></p>
-                <p><?= $production->text; ?></p>
+                <p class="movie-article__details details"><?= $production->content->details; ?></p>
+                <p><?= $production->content->text; ?></p>
                 <a
                     href="index.php?action=production&id=<?= $production->id; ?>"
                     class="btn btn--primary" title="Voir la fiche">Voir la fiche
@@ -51,13 +51,13 @@
     <?php foreach ($lastNews as $news) : ?>
         <article class="movie-article">
             <div class="movie-article__thumb">
-                <img src="public/assets/images/thumbs/<?= $news->thumb; ?>" alt="">
+                <img src="public/assets/images/thumbs/<?= $news->content->thumb; ?>" alt="">
             </div>
 
             <div class="movie-article__content">
                 <h3 class="article-title"><?= $news->title; ?></h3>
-                <p class="movie-article__details details"><?= $news->details; ?></p>
-                <p><?= $news->text; ?></p>
+                <p class="movie-article__details details"><?= $news->content->details; ?></p>
+                <p><?= $news->content->text; ?></p>
                 <a
                     href="index.php?action=production&id=<?= $news->id; ?>"
                     class="btn btn--primary"
@@ -76,7 +76,7 @@
         <?php foreach ($lastMemories as $memory) : ?>
             <li class="memories-list__item">
                 <img
-                    src="public/assets/images/pictures/<?= $memory->medias[0]->name; ?>"
+                    src="public/assets/images/pictures/<?= $memory->content->medias[0]->name; ?>"
                     alt=""
                     class="memories-item__img">
                 <div class="memories-item__overlay" data-memo-id="<?= $memory->id; ?>">

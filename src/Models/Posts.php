@@ -11,11 +11,13 @@ class Posts extends Model
     protected bool $status;
     protected string $creation_date;
     protected string $modification_date;
+    protected Contents $content;
 
     public function __construct()
     {
         parent::__construct();
         $this->table = "posts";
+        $this->content = new Contents();
     }
 
     // Getters & setters ******************************
