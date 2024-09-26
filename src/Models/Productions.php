@@ -8,7 +8,7 @@ class Productions extends Posts
     public function __construct()
     {
         parent::__construct();
-        $this->type = "productions";
+        $this->type_id = 1;
     }
 
     // Methods ******************************
@@ -17,7 +17,7 @@ class Productions extends Posts
         $query = $this->host->prepare("
             SELECT *
             FROM {$this->table}
-            WHERE {$this->table}.type = '{$this->type}'
+            WHERE {$this->table}.type_id = '{$this->type_id}'
             ORDER BY creation_date DESC
             LIMIT :n;
         ");

@@ -7,7 +7,8 @@ class Posts extends Model
     protected int $id;
     protected int $author_id;
     protected string $title;
-    protected string $type;
+    protected int $type_id;
+    // protected string $type;
     protected bool $status;
     protected string $creation_date;
     protected string $modification_date;
@@ -21,38 +22,50 @@ class Posts extends Model
     }
 
     // Getters & setters ******************************
-    public function getId()
+    public function getId(): int
     {
         return $this->id;
     }
 
-    public function setId($id)
+    public function setId($id): self
     {
         $this->id = $id;
 
         return $this;
     }
 
-    public function getAuthor_id()
+    public function getAuthor_id(): int
     {
         return $this->author_id;
     }
 
-    public function setAuthor_id($author_id)
+    public function setAuthor_id($author_id): self
     {
         $this->author_id = $author_id;
 
         return $this;
     }
 
-    public function getTitle()
+    public function getTitle(): string
     {
         return $this->title;
     }
 
-    public function setTitle($title)
+    public function setTitle($title): self
     {
         $this->title = $title;
+
+        return $this;
+    }
+
+    public function getType_id(): int
+    {
+        return $this->type_id;
+    }
+
+    public function setType_id($type_id): self
+    {
+        $this->type_id = $type_id;
 
         return $this;
     }
@@ -62,24 +75,24 @@ class Posts extends Model
         return $this->status;
     }
 
-    public function setStatus($status)
+    public function setStatus($status): self
     {
         $this->status = $status;
 
         return $this;
     }
 
-    public function getCreation_date()
+    public function getCreation_date(): string
     {
         return $this->creation_date;
     }
 
-    public function getModification_date()
+    public function getModification_date(): string
     {
         return $this->modification_date;
     }
 
-    public function setModification_date($modification_date)
+    public function setModification_date($modification_date): self
     {
         $this->modification_date = $modification_date;
 

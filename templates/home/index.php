@@ -34,7 +34,8 @@
             <div class="movie-article__content">
                 <h3 class="article-title"><?= $production->title; ?></h3>
                 <p class="movie-article__details details"><?= $production->content->details; ?></p>
-                <p><?= $production->content->text; ?></p>
+                <!-- <p><?= $production->content->text; ?></p> -->
+                <?= $production->content->text; ?>
                 <a
                     href="index.php?action=production&id=<?= $production->id; ?>"
                     class="btn btn--primary" title="Voir la fiche">Voir la fiche

@@ -24,7 +24,7 @@ class Contents extends Model
         return $this->post_id;
     }
 
-    public function setPost_id($post_id)
+    public function setPost_id($post_id): self
     {
         $this->post_id = $post_id;
 

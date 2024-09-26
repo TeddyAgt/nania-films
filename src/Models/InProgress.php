@@ -7,7 +7,7 @@ class InProgress extends Posts
     public function __construct()
     {
         parent::__construct();
-        $this->type = "inProgress";
+        $this->type_id = 2;
     }
 
     // Methods ******************************
@@ -16,7 +16,7 @@ class InProgress extends Posts
         $query = $this->host->prepare("
             SELECT *
             FROM {$this->table}
-            WHERE {$this->table}.type = '{$this->type}'
+            WHERE {$this->table}.type_id = '{$this->type_id}'
             ORDER BY creation_date DESC
             LIMIT :n;
         ");
