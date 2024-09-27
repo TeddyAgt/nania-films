@@ -2,12 +2,12 @@
 
 namespace App\Models;
 
-class InProgress extends Posts
+class Replays extends Posts
 {
     public function __construct()
     {
         parent::__construct();
-        $this->type_id = 2;
+        $this->type_id = 4;
     }
 
     // Methods ******************************
@@ -23,17 +23,18 @@ class InProgress extends Posts
 
         $query->bindValue(":n", $n, \PDO::PARAM_INT);
         $query->execute();
-        $news = $query->fetchAll();
+        $replays = $query->fetchAll();
 
-        foreach ($news as $n) {
-            $n->content = $this->content->find($n->id);
+        foreach ($replays as $replay) {
+            $replay->content = $this->content->find($replay->id);
         }
 
-        return $news;
+        return $replays;
     }
 
     public function findByPage(int $page)
     {
+
         $query = $this->host->prepare("
             SELECT *
             FROM {$this->table}
@@ -44,12 +45,12 @@ class InProgress extends Posts
 
         $query->bindValue(":page", ($page * 5) - 5, \PDO::PARAM_INT);
         $query->execute();
-        $news = $query->fetchAll();
+        $replays = $query->fetchAll();
 
-        foreach ($news as $n) {
-            $n->content = $this->content->find($n->id);
+        foreach ($replays as $replay) {
+            $replay->content = $this->content->find($replay->id);
         }
 
-        return $news;
+        return $replays;
     }
 }

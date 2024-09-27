@@ -1,0 +1,102 @@
+header {
+    /* position: fixed; */
+    position: relative;
+    /* width: 100%; */
+    /* background: var(--floral-white); */
+    /* border-bottom: 1px solid var(--black); */
+    /* box-shadow: var(--shadow-light); */
+}
+
+.productions-section {
+    margin-top: 88px;
+    padding-inline: 64px;
+}
+
+@media screen and (max-width: 680px) {
+    .legals-section .main-title {
+        margin-left: 0;
+        text-align: center;
+    }
+}
+
+.main-player__container {
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.main-player {
+    width: 100%;
+    display: block;
+    margin-bottom: 32px;
+}
+
+.main-player__container .article-title {
+    margin-bottom: 8px;
+}
+
+.main-player__details {
+    margin-bottom: 16px;
+}
+
+/* Productions section, Replays section */
+.movie-article {
+    max-width: 1100px;
+    margin: 0 auto;
+    align-items: center;
+    display: grid;
+    grid-template-columns: minmax(400px, 1fr) auto;
+    gap: 32px;
+    margin-bottom: 32px;
+}
+
+.movie-article__thumb {
+    box-shadow: var(--shadow-light);
+    /* min-width: 30%;
+    width: 100%; */
+    /* flex-shrink: 2; */
+    /* border: 3px solid red; */
+}
+
+.movie-article__thumb img {
+    width: 100%;
+}
+.article-title {
+    margin-bottom: 8px;
+}
+
+.movie-article__details {
+    margin-bottom: 16px;
+    font-size: var(--fz-12);
+}
+
+.movie-article__details span {
+    font-weight: 600;
+}
+
+.movie-article__content .btn {
+    margin-top: 16px;
+    margin-left: auto;
+}
+
+.paging {
+    text-align: right;
+    margin-top: 64px;
+}
+
+.paging__link {
+    color: var(--primary);
+    text-decoration: underline;
+    transition: opacity 0.2s ease-out;
+}
+
+.paging__link:hover {
+    opacity: 0.75;
+}
+
+@media screen and (max-width: 1000px) {
+    .movie-article {
+        display: flex;
+        flex-direction: column;
+        max-width: 500px;
+    }
+}

@@ -2,6 +2,7 @@
 
 use App\Controllers\About;
 use App\Controllers\Home;
+use App\Controllers\Posts;
 
 require "vendor/autoload.php";
 
@@ -13,6 +14,10 @@ if (($action = filter_input(INPUT_GET, "action", FILTER_SANITIZE_SPECIAL_CHARS))
     switch ($action) {
         case 'about':
             (new About())->index();
+            break;
+
+        case "productions":
+            (new Posts())->productions();
             break;
 
         default:

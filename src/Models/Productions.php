@@ -17,12 +17,33 @@ class Productions extends Posts
         $query = $this->host->prepare("
             SELECT *
             FROM {$this->table}
-            WHERE {$this->table}.type_id = '{$this->type_id}'
+            WHERE {$this->table}.type_id = {$this->type_id}
             ORDER BY creation_date DESC
             LIMIT :n;
         ");
 
         $query->bindValue(":n", $n, \PDO::PARAM_INT);
+        $query->execute();
+        $productions = $query->fetchAll();
+
+        foreach ($productions as $production) {
+            $production->content = $this->content->find($production->id);
+        }
+
+        return $productions;
+    }
+
+    public function findByPage(int $page)
+    {
+        $query = $this->host->prepare("
+            SELECT *
+            FROM {$this->table}
+            WHERE {$this->table}.type_id = {$this->type_id}
+            ORDER BY creation_date DESC
+            LIMIT 5 OFFSET :page;
+        ");
+
+        $query->bindValue(":page", ($page * 5) - 5, \PDO::PARAM_INT);
         $query->execute();
         $productions = $query->fetchAll();
 
