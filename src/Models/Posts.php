@@ -113,4 +113,16 @@ class Posts extends Model
         $query->execute();
         return $query->fetchAll();
     }
+
+    public function countpages(): int
+    {
+        $query = $this->host->prepare("
+            SELECT COUNT(id) AS nb_pages
+            FROM {$this->table}
+            WHERE type_id = {$this->type_id};
+        ");
+
+        $query->execute();
+        return ceil($query->fetch()->nb_pages / 5);
+    }
 }

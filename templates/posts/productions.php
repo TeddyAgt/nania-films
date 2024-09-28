@@ -2,10 +2,10 @@
     <h1 class="main-title">Nos réalisations</h1>
 
     <!-- Movies subsection -->
-    <section class="movies-subsection">
+    <section class="movies-subsection" id="movies">
         <h2 class="section-title">Nos films</h2>
 
-        <?php foreach ($productions as $production) : ?>
+        <?php foreach ($pageContent["productions"]["publications"] as $production) : ?>
             <article class="movie-article">
                 <div class="movie-article__thumb">
                     <img src="public/assets/images/thumbs/<?= $production->content->thumb; ?>" alt="">
@@ -21,15 +21,23 @@
         <?php endforeach; ?>
 
         <div class="paging">
-            <p>1, <a href="#" class="paging__link">2</a>, <a href="#" class="paging__link">fin</a></p>
+            <p>
+                <?php for ($i = 1; $i <= $pageContent["productions"]["nb_pages"]; $i++) : ?>
+                    <a
+                        href="index.php?action=productions&f=<?= $i; ?>&r=<?= $pageContent["replays"]["current_page"]; ?>#movies"
+                        class="paging__link <?= $pageContent["productions"]["current_page"] === $i
+                                                ? "paging__link--inactive"
+                                                : ""; ?>"><?= $i ?></a><?= $i < $pageContent["productions"]["nb_pages"] ? ", " : ""; ?>
+                <?php endfor; ?>
+            </p>
         </div>
     </section>
 
     <!-- Replays subsection -->
-    <section class="replays-subsection">
+    <section class="replays-subsection" id="replays">
         <h2 class="section-title">Replays</h2>
 
-        <?php foreach ($replays as $replay) : ?>
+        <?php foreach ($pageContent["replays"]["publications"] as $replay) : ?>
             <article class="movie-article">
                 <div class="movie-article__thumb">
                     <img src="public/assets/images/thumbs/<?= $replay->content->thumb; ?>" alt="">
@@ -45,7 +53,15 @@
         <?php endforeach; ?>
 
         <div class="paging">
-            <p>1, <a href="#" class="paging__link">2</a>, <a href="#" class="paging__link">fin</a></p>
+            <p>
+                <?php for ($i = 1; $i <= $pageContent["replays"]["nb_pages"]; $i++) : ?>
+                    <a
+                        href="index.php?action=productions&r=<?= $i; ?>&f=<?= $pageContent["productions"]["current_page"]; ?>#replays"
+                        class="paging__link <?= $pageContent["replays"]["current_page"] === $i
+                                                ? "paging__link--inactive"
+                                                : ""; ?>"><?= $i ?></a><?= $i < $pageContent["replays"]["nb_pages"] ? ", " : ""; ?>
+                <?php endfor; ?>
+            </p>
         </div>
     </section>
 

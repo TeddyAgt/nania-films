@@ -13,11 +13,18 @@ define("ROOT", $_SERVER["DOCUMENT_ROOT"]);
 if (($action = filter_input(INPUT_GET, "action", FILTER_SANITIZE_SPECIAL_CHARS))) {
     switch ($action) {
         case 'about':
-            (new About())->index();
+            (new About())->index($action);
             break;
 
         case "productions":
-            (new Posts())->productions();
+            $filmPage = filter_input(INPUT_GET, "f", FILTER_SANITIZE_NUMBER_INT) ?? 1;
+            $replayPage = filter_input(INPUT_GET, "r", FILTER_SANITIZE_NUMBER_INT) ?? 1;
+            (new Posts())->productions($action, $filmPage, $replayPage);
+            break;
+
+        case "news":
+            $age = filter_input(INPUT_GET, "p", FILTER_SANITIZE_NUMBER_INT) ?? 1;
+            (new Posts())->news($action, $age);
             break;
 
         default:
@@ -25,7 +32,7 @@ if (($action = filter_input(INPUT_GET, "action", FILTER_SANITIZE_SPECIAL_CHARS))
             break;
     }
 } else {
-    (new Home())->index();
+    (new Home())->index($action);
 }
 // } catch (\Exception $e) {
 //     $errorCode = $e->getCode();

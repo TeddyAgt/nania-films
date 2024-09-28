@@ -109,6 +109,7 @@
 
         <div class="carousel__slide carousel__slide--3">
             <img src="public/assets/images/pictures/1727365470.jpg" alt="" class="carousel__picture" data-slide="3">
+            <!-- <img src="public/assets/images/pictures/test.jpg" alt="" class="carousel__picture" data-slide="3"> -->
         </div>
 
     </div>

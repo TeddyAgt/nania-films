@@ -83,14 +83,18 @@ header {
     margin-top: 64px;
 }
 
-.paging__link {
+.paging__link:not(.paging__link--inactive) {
     color: var(--primary);
     text-decoration: underline;
     transition: opacity 0.2s ease-out;
 }
 
-.paging__link:hover {
+.paging__link:not(.paging__link--inactive):hover {
     opacity: 0.75;
+}
+
+.paging__link--inactive {
+    cursor: default;
 }
 
 @media screen and (max-width: 1000px) {

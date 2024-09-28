@@ -2,23 +2,52 @@
 
 namespace App\Controllers;
 
+use App\Models\InProgress;
+use App\Models\Posts as ModelsPosts;
 use App\Models\Productions;
 use App\Models\Replays;
 
 class Posts
 {
-    public function productions(int $page = 1)
+    public function productions(string $action, int $filmPage = 1, int $replayPage = 1)
     {
+        $productionsModel = new Productions();
+        $replaysModel = new Replays();
         $css = '<link rel="stylesheet" href="public/css/productions.css">';
         $title = "Nos réalisations";
-        $productions = (new Productions())->findByPage($page);
-        $replays = (new Replays())->findByPage($page);
+        $pageContent = [
+            "productions" => [
+                "nb_pages" => $productionsModel->countPages(),
+                "current_page" => $filmPage,
+                "publications" => $productionsModel->findByPage($filmPage)
+            ],
+            "replays" => [
+                "nb_pages" => $replaysModel->countpages(),
+                "current_page" => $replayPage,
+                "publications" => $replaysModel->findByPage($replayPage)
+            ]
+        ];
         $view = "posts/productions.php";
         $javascript = "";
         require ROOT . "/templates/no-hero-page.php";
     }
 
-    public function news() {}
+    public function news(string $action, int $page = 1)
+    {
+        $newsModel = new InProgress();
+        $css = '<link rel="stylesheet" href="public/css/productions.css">';
+        $title = "Productions en cours";
+        $pageContent = [
+            "news" => [
+                "nb_pages" => $newsModel->countPages(),
+                "current_page" => $page,
+                "publications" => $newsModel->findByPage($page)
+            ]
+        ];
+        $view = "posts/news.php";
+        $javascript = "";
+        require ROOT . "/templates/no-hero-page.php";
+    }
 
-    public function memories() {}
+    public function memories(string $action) {}
 }

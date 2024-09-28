@@ -8,7 +8,7 @@ use App\Models\Productions;
 
 class Home
 {
-    public function index()
+    public function index($action)
     {
         $css = '<link rel="stylesheet" href="public/css/index.css">';
         $title = "Accueil";

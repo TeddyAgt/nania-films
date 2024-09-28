@@ -4,7 +4,7 @@ namespace App\Controllers;
 
 class About
 {
-    public function index()
+    public function index($action)
     {
         $css = '<link rel="stylesheet" href="public/css/about.css">';
         $title = "Qui sommes nous";
