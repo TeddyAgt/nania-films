@@ -17,6 +17,7 @@ class About
         ];
         $view = "about/index.php";
         $javascript = '<script src="public/js/about.js"></script>';
+
         require ROOT . "/templates/page-with-hero.php";
     }
 }

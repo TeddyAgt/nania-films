@@ -7,5 +7,5 @@ test.php
 videos/
 images/
 .VSCodeCounter/
-DotEnv.php
 create_db*
+.vscode/

@@ -8,7 +8,7 @@ class Contents extends Model
     protected string $thumb;
     protected string $details;
     protected string $text;
-    protected array $medias;
+    protected string $medias;
     protected string $vimeo_id;
     protected string $url;
 

@@ -23,6 +23,7 @@
             copain de divorce, un voyage en Grèce à l’âge de 17 ans les a soudés… depuis plus de 30 ans.</p>
     </div>
 </section>
+
 <!-- Team section -->
 <section class="team-section base-section">
     <h2 class="section-title">L'équipe</h2>

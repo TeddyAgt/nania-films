@@ -15,7 +15,10 @@
                     <h3 class="article-title"><?= $production->title; ?></h3>
                     <p class="movie-article__details details"><?= $production->content->details; ?></p>
                     <p><?= $production->content->text; ?></p>
-                    <a href="index.php?=action=production&id=<?= $production->id; ?>" class="btn btn--primary">Voir la fiche</a>
+                    <a
+                        href="index.php?=action=production&id=<?= $production->id; ?>"
+                        class="btn btn--primary">Voir la fiche
+                    </a>
                 </div>
             </article>
         <?php endforeach; ?>
@@ -47,7 +50,7 @@
                     <h3 class="article-title"><?= $replay->title; ?></h3>
                     <p class="movie-article__details details"><?= $replay->content->details; ?></p>
                     <p><?= $replay->content->text; ?></p>
-                    <a href="<?= $replay->content->url; ?>" class="btn btn--primary">Voir</a>
+                    <a href="<?= $replay->content->url; ?>" class="btn btn--primary" target="_blank">Voir</a>
                 </div>
             </article>
         <?php endforeach; ?>

@@ -21,7 +21,28 @@ class Home
         $lastNews = (new InProgress())->findLasts(2);
         $lastMemories = (new Memories())->findLasts(3);
         $view = "home/index.php";
-        $javascript = "";
+        $javascript = '<script src="public/js/contact.js"></script>';
+
         require ROOT . "/templates/page-with-hero.php";
+    }
+
+    public function contact($action)
+    {
+        $css = '<link rel="stylesheet" href="public/css/contact.css">';
+        $title = "Contact";
+        $hero = ["background" => "contact.mp4"];
+        $section = "contact-section";
+        $view = "home/contact.php";
+        $javascript = '<script src="public/js/contact.js"></script>';
+
+        require ROOT . "/templates/hero-only-page.php";
+    }
+
+    public function legals($action)
+    {
+        $css = '<link rel="stylesheet" href="public/css/legals.css">';
+        $title = "Mentions légales";
+
+        require ROOT . "/templates/legals.php";
     }
 }

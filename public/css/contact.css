@@ -1,0 +1,39 @@
+.hero-section__content {
+    background: #1c1c1cc9;
+    color: var(--white);
+    padding: 128px 64px 0;
+    align-items: flex-start;
+    text-align: left;
+}
+
+.contact-section__content {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.contact-section__content p {
+    margin-bottom: 16px;
+}
+
+.social-networks-container {
+    margin-bottom: 16px;
+}
+
+input,
+textarea {
+    background: #f7f7f74d;
+    border: 1px solid #f7f7f74d;
+}
+
+input {
+    width: 66%;
+}
+
+textarea {
+    resize: none;
+    height: 120px;
+}
+
+.contact-section .btn {
+    margin-left: auto;
+}

@@ -1,0 +1,156 @@
+.memories-list {
+    text-decoration: none;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 32px;
+}
+
+.memories-list__item {
+    position: relative;
+    max-width: 400px;
+    min-width: 275px;
+    aspect-ratio: 1 / 1;
+    overflow: hidden;
+    box-shadow: var(--shadow-light);
+    cursor: pointer;
+}
+
+.memories-item__img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.2s ease-out;
+}
+
+.memories-list__item:hover .memories-item__img {
+    transform: scale(1.02);
+}
+
+.memories-item__overlay {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    background: rgba(0, 0, 0, 0.5);
+    color: var(--white);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: flex-end;
+    padding: 32px;
+    opacity: 0;
+    transition: opacity 0.2s ease-out;
+}
+
+.memories-item__overlay:hover {
+    opacity: 1;
+}
+
+.memories-item__title {
+    font-size: var(--fz-24);
+    font-weight: 600;
+}
+
+.overlay {
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    background: #1c1c1ce7;
+    z-index: 6;
+    display: flex;
+    justify-content: center;
+}
+
+.overlay__close-btn {
+    position: absolute;
+    border: none;
+    background: none;
+    top: 32px;
+    right: 32px;
+    width: 32px;
+    transition: opacity 0.2s ease-out;
+}
+
+.overlay__close-btn:hover {
+    opacity: 0.8;
+}
+
+.overlay__close-btn img {
+    width: 100%;
+}
+
+.overlay__content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-width: 540px;
+    /* margin: 0 auto; */
+}
+
+.overlay__content img {
+    width: 100%;
+}
+
+.memory-modal {
+    background: var(--white);
+    position: relative;
+    max-width: 1200px;
+    /* max-height: 80vh; */
+    padding: 64px;
+    box-shadow: var(--shadow-light);
+    display: flex;
+    flex-direction: column;
+}
+
+.close-modal-btn {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    background: none;
+    border: none;
+    width: 32px;
+}
+
+.close-modal-btn img {
+    width: 100%;
+}
+
+.memory-media {
+    margin-bottom: 32px;
+}
+
+@media screen and (max-width: 860px) {
+    .overlay {
+        padding: 32px;
+    }
+
+    .memory-modal {
+        padding: 32px;
+    }
+
+    .close-modal-btn {
+        top: 8px;
+        right: 8px;
+        width: 24px;
+    }
+}
+
+@media screen and (max-width: 680px) {
+    .overlay {
+        padding: 16px;
+    }
+
+    .memory-modal {
+        padding: 16px;
+    }
+
+    .close-modal-btn {
+        top: 8px;
+        right: 8px;
+        width: 24px;
+    }
+}

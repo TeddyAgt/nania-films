@@ -11,6 +11,24 @@ class Memories extends Posts
     }
 
     // Methods ******************************
+    public function findAll(): array
+    {
+        $query = $this->host->prepare("
+        SELECT *
+        FROM {$this->table}
+        WHERE type_id = {$this->type_id};
+    ");
+
+        $query->execute();
+        $memories = $query->fetchAll();
+
+        foreach ($memories as $memory) {
+            $memory->content = $this->content->find($memory->id);
+        }
+
+        return $memories;
+    }
+
     public function findLasts(int $n): array
     {
         $query = $this->host->prepare("

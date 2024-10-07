@@ -100,6 +100,13 @@ class Posts extends Model
     }
 
     // Methods
+    public function find($id)
+    {
+        $post = parent::find($id);
+        $post->content = $this->content->find($post->id);
+        return $post;
+    }
+
     public function findLasts(int $n): array
     {
         $query = $this->host->prepare("

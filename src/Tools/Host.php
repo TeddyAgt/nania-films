@@ -5,25 +5,27 @@ namespace App\Tools;
 class Host extends \PDO
 {
     private static $instance;
-    private static string $db_host;
-    private static string $db_name;
-    private static string $db_user;
-    private static string $db_password;
+    private static string $host;
+    private static string $dbName;
+    private static $username;
+    private static $password;
 
     private function __construct()
     {
-        self::$db_host = getenv("DB_HOST");
-        self::$db_name = getenv("DB_NAME");
-        self::$db_user = getenv("DB_USER");
-        self::$db_password = getenv("DB_PASSWORD");
-
-        $_dsn = "mysql:dbname=" . self::$db_name . ";host=" . self::$db_host;
+        $credentials = (new DotEnv())->getCredentials();
+        self::$host = $credentials["DB_HOST"];
+        self::$dbName = $credentials["DB_NAME"];
+        self::$username = $credentials["DB_USER"];
+        self::$password = $credentials["DB_PASSWORD"];
+        $_dsn = "mysql:dbname=" . self::$dbName . ";host=" . self::$host;
 
         try {
-            parent::__construct($_dsn, self::$db_user, self::$db_password, [
+            parent::__construct($_dsn, self::$username, self::$password, [
                 \PDO::ATTR_DEFAULT_FETCH_MODE => \PDO::FETCH_OBJ,
                 \PDO::ATTR_ERRMODE => \PDO::ERRMODE_EXCEPTION
             ]);
+
+            $this->setAttribute(\PDO::MYSQL_ATTR_INIT_COMMAND, "SET NAMES utf8");
         } catch (\PDOException $e) {
             die($e->getMessage());
         }

@@ -3,6 +3,7 @@
 namespace App\Controllers;
 
 use App\Models\InProgress;
+use App\Models\Memories;
 use App\Models\Posts as ModelsPosts;
 use App\Models\Productions;
 use App\Models\Replays;
@@ -49,5 +50,20 @@ class Posts
         require ROOT . "/templates/no-hero-page.php";
     }
 
-    public function memories(string $action) {}
+    public function memories(string $action)
+    {
+        $css = '<link rel="stylesheet" href="public/css/memories.css">';
+        $title = "Souvenirs de tournage";
+        $hero = [
+            "background" => "memories.mp4",
+            "text" => "Souvenirs",
+            "cta" => '<a href="#memories-section" class="hero-section__down-btn" aria-hidden="true">
+                        <img src="assets/icons/chevron-down.svg" aria-hidden="true" alt="">
+                        </a>'
+        ];
+        $memories = (new Memories())->findAll();
+        $view = "posts/memories.php";
+        $javascript = '<script src="public/js/memories.js"></script>';
+        require ROOT . "/templates/page-with-hero.php";
+    }
 }

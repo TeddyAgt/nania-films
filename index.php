@@ -23,8 +23,20 @@ if (($action = filter_input(INPUT_GET, "action", FILTER_SANITIZE_SPECIAL_CHARS))
             break;
 
         case "news":
-            $age = filter_input(INPUT_GET, "p", FILTER_SANITIZE_NUMBER_INT) ?? 1;
-            (new Posts())->news($action, $age);
+            $page = filter_input(INPUT_GET, "p", FILTER_SANITIZE_NUMBER_INT) ?? 1;
+            (new Posts())->news($action, $page);
+            break;
+
+        case "memories":
+            (new Posts())->memories($action);
+            break;
+
+        case "contact":
+            (new Home())->contact($action);
+            break;
+
+        case "legals":
+            (new Home())->legals($action);
             break;
 
         default:

@@ -1,0 +1,28 @@
+header {
+    position: relative;
+}
+
+.legals-section {
+    margin-top: 88px;
+    padding-inline: 64px;
+}
+
+.legals-section article,
+.main-title + p {
+    margin-bottom: 64px;
+}
+
+.legals-section article .section-title {
+    text-align: left;
+}
+
+.legals-section article p {
+    margin-bottom: 8px;
+}
+
+@media screen and (max-width: 680px) {
+    .legals-section .main-title {
+        margin-left: 0;
+        text-align: center;
+    }
+}

@@ -391,6 +391,10 @@ header {
     width: 100%;
 }
 
+.hero-section--only {
+    margin-bottom: 0;
+}
+
 .hero-section__background-video {
     position: absolute;
     height: 100%;

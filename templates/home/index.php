@@ -82,7 +82,7 @@
                     class="memories-item__img">
                 <div class="memories-item__overlay" data-memo-id="<?= $memory->id; ?>">
                     <h2 class="memories-item__title"><?= $memory->title; ?></h2>
-                    <p class="memories-item__date"><?= date_format(date_create($memory->creation_date), "d/m/Y") ?></p>
+                    <p class="memories-item__date"><?= date_format(date_create($memory->creation_date), "d/m/Y"); ?></p>
                 </div>
             </li>
         <?php endforeach; ?>
@@ -111,7 +111,7 @@
     </div>
 
     <div class="contact-section__right-content">
-        <form action="" method="POST" class="contact-section__form">
+        <form action="" method="POST" class="contact-section__form" id="contact-form">
             <div class="input-group">
                 <label for="email">Email:</label>
                 <input type="email" name="email" id="email">
@@ -123,6 +123,7 @@
                 <textarea name="message" id="message"></textarea>
                 <p class="form-error"></p>
             </div>
+            <p class="form-error"></p>
 
             <button type="submit" class="btn btn--primary">Envoyer</button>
         </form>
