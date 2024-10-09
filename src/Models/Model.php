@@ -26,12 +26,34 @@ class Model extends Host
         return $query->fetch();
     }
 
-    public function findAll()
+    public function findAll(bool $active = false)
     {
+        $filter = $active ? "WHERE status = 1" : "";
         $query = $this->host->prepare("
             SELECT *
-            FROM {$this->table};
+            FROM {$this->table}
+            $filter;
         ");
+        $query->execute();
+        return $query->fetchAll();
+    }
+
+    public function findBy(array $criteria)
+    {
+        $fields = [];
+        $values = array_values($criteria);
+
+        foreach ($criteria as $key => $_) {
+            $fields[] = "$key = :$key";
+        }
+
+        $fieldList = implode(" AND ", $fields);
+
+        $query = $this->host->prepare("SELECT * FROM {$this->table} WHERE $fieldList");
+
+        foreach ($criteria as $key => $value) {
+            $query->bindValue(":$key", $value);
+        }
         $query->execute();
         return $query->fetchAll();
     }

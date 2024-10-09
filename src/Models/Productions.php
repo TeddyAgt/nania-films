@@ -12,12 +12,15 @@ class Productions extends Posts
     }
 
     // Methods ******************************
-    public function findLasts(int $n): array
+    public function findLasts(int $n, bool $active = false): array
     {
+        $filter = $active ? "AND status = 1" : "";
+
         $query = $this->host->prepare("
             SELECT *
             FROM {$this->table}
             WHERE {$this->table}.type_id = {$this->type_id}
+            $filter
             ORDER BY creation_date DESC
             LIMIT :n;
         ");
@@ -33,12 +36,15 @@ class Productions extends Posts
         return $productions;
     }
 
-    public function findByPage(int $page)
+    public function findByPage(int $page, bool $active = false)
     {
+        $filter = $active ? "AND status = 1" : "";
+
         $query = $this->host->prepare("
             SELECT *
             FROM {$this->table}
             WHERE {$this->table}.type_id = {$this->type_id}
+            $filter
             ORDER BY creation_date DESC
             LIMIT 5 OFFSET :page;
         ");

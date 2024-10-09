@@ -11,12 +11,14 @@ class Memories extends Posts
     }
 
     // Methods ******************************
-    public function findAll(): array
+    public function findAll(bool $active = false): array
     {
+        $filter = $active ? "AND status = 1" : "";
         $query = $this->host->prepare("
         SELECT *
         FROM {$this->table}
-        WHERE type_id = {$this->type_id};
+        WHERE type_id = {$this->type_id}
+        $filter;
     ");
 
         $query->execute();

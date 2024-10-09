@@ -17,9 +17,9 @@ class Home
             "text" => "Raconter de belles histoires",
             "cta" => '<a href="index.php?action=productions" class="btn btn--primary btn--hero">Réalisations</a>'
         ];
-        $lastProductions = (new Productions())->findLasts(2);
-        $lastNews = (new InProgress())->findLasts(2);
-        $lastMemories = (new Memories())->findLasts(3);
+        $lastProductions = (new Productions())->findLasts(2, true);
+        $lastNews = (new InProgress())->findLasts(2, true);
+        $lastMemories = (new Memories())->findLasts(3, true);
         $view = "home/index.php";
         $javascript = '<script src="public/js/contact.js"></script>';
 

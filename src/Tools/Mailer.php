@@ -45,12 +45,16 @@ class Mailer extends PHPMailer
             $this->setFrom(self::$admin);
             $this->addAddress($to);
             $this->Subject = $subject;
-            // $this->Body = $message;
-            $this->msgHTML($message);
+            ob_start();
+            require_once "templates/mails/from-admin.php";
+            $body = ob_get_clean();
+            $this->msgHTML($body);
             $this->send();
         } catch (Exception $e) {
-            throw new Exception($e->getMessage());
-            // echo "Message non envoyé. Erreur: {$this->ErrorInfo}";
+            header("Cache-Control: no-cache");
+            header("Retry-After: 120");
+            http_response_code(503);
+            die;
         }
     }
 
@@ -60,25 +64,40 @@ class Mailer extends PHPMailer
             $this->setFrom($from);
             $this->addAddress("contact@nania-films.fr");
             $this->Subject = "Contact via nania-films.fr";
-            $this->msgHTML($message);
+            ob_start();
+            require_once "templates/mails/to-contact.php";
+            $body = ob_get_clean();
+            $this->msgHTML($body);
             if ($this->send()) {
                 $this->sendFromContact($from, $message);
             } else {
                 throw new Exception($this->ErrorInfo);
             }
         } catch (Exception $e) {
-            throw new Exception($e->getMessage());
-            // echo "Message non envoyé. Erreur: {$this->ErrorInfo}";
+            header("Cache-Control: no-cache");
+            header("Retry-After: 120");
+            http_response_code(503);
+            die;
         }
     }
 
     public function sendFromContact(string $to, string $message)
     {
-        $this->setFrom("do-not-reply@nania-films.fr");
-        $this->clearAllRecipients();
-        $this->addAddress($to);
-        $this->Subject = "Nania Films - Message délivré";
-        $this->msgHTML("Bonjour,<br><br>Votre message a bien été transmis et nous vous en remercions. Nous vous apporterons une réponse rapidement.<br><br>Cordialement,<br>L'équipe Nania Films<br><br>--------------------<br><br>Contenu de votre message:<br>$message");
-        $this->send();
+        try {
+            $this->setFrom("do-not-reply@nania-films.fr");
+            $this->clearAllRecipients();
+            $this->addAddress($to);
+            $this->Subject = "Nania Films - Message délivré";
+            ob_start();
+            require_once "templates/mails/from-contact.php";
+            $body = ob_get_clean();
+            $this->msgHTML($body);
+            $this->send();
+        } catch (Exception $e) {
+            header("Cache-Control: no-cache");
+            header("Retry-After: 120");
+            http_response_code(503);
+            die;
+        }
     }
 }

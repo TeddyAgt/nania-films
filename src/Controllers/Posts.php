@@ -20,12 +20,12 @@ class Posts
             "productions" => [
                 "nb_pages" => $productionsModel->countPages(),
                 "current_page" => $filmPage,
-                "publications" => $productionsModel->findByPage($filmPage)
+                "publications" => $productionsModel->findByPage($filmPage, true)
             ],
             "replays" => [
                 "nb_pages" => $replaysModel->countpages(),
                 "current_page" => $replayPage,
-                "publications" => $replaysModel->findByPage($replayPage)
+                "publications" => $replaysModel->findByPage($replayPage, true)
             ]
         ];
         $view = "posts/productions.php";
@@ -42,7 +42,7 @@ class Posts
             "news" => [
                 "nb_pages" => $newsModel->countPages(),
                 "current_page" => $page,
-                "publications" => $newsModel->findByPage($page)
+                "publications" => $newsModel->findByPage($page, true)
             ]
         ];
         $view = "posts/news.php";
@@ -61,7 +61,7 @@ class Posts
                         <img src="assets/icons/chevron-down.svg" aria-hidden="true" alt="">
                         </a>'
         ];
-        $memories = (new Memories())->findAll();
+        $memories = (new Memories())->findAll(true);
         $view = "posts/memories.php";
         $javascript = '<script src="public/js/memories.js"></script>';
         require ROOT . "/templates/page-with-hero.php";

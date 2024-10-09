@@ -3,7 +3,7 @@
 vendor/
 profile-picture.jpg
 phpcs.xml
-test.php
+test.*
 videos/
 images/
 .VSCodeCounter/
