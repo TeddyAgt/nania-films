@@ -15,7 +15,7 @@
                 fast-food », à une information de qualité garantie sans fake-news ?</p>
         </div>
         <a
-            href="index.php?action=about"
+            href="index.php?c=about"
             class="btn btn--secondary btn--big"
             title="Qui sommes nous ?">Qui sommes nous ?
         </a>
@@ -37,13 +37,13 @@
                 <!-- <p><?= $production->content->text; ?></p> -->
                 <?= $production->content->text; ?>
                 <a
-                    href="index.php?action=production&id=<?= $production->id; ?>"
+                    href="index.php?c=posts&action=production&id=<?= $production->id; ?>"
                     class="btn btn--primary" title="Voir la fiche">Voir la fiche
                 </a>
             </div>
         </article>
     <?php endforeach; ?>
-    <a href="index.php?action=productions" class="btn btn--secondary btn--big">Voir toutes nos réalisations</a>
+    <a href="index.php?c=posts&action=productions" class="btn btn--secondary btn--big">Voir toutes nos réalisations</a>
 </section>
 
 <!-- News section -->
@@ -67,7 +67,7 @@
             </div>
         </article>
     <?php endforeach; ?>
-    <a href="index.php?action=news" class="btn btn--secondary btn--big">Voir toutes les actus</a>
+    <a href="index.php?c=posts&action=news" class="btn btn--secondary btn--big">Voir toutes les actus</a>
 </section>
 
 <!-- Memories section -->
@@ -87,7 +87,7 @@
             </li>
         <?php endforeach; ?>
     </ul>
-    <a href="index.php?action=memories" class="btn btn--secondary btn--big">Voir tous les souvenirs</a>
+    <a href="index.php?c=posts&action=memories" class="btn btn--secondary btn--big">Voir tous les souvenirs</a>
 </section>
 
 <!-- Contact section -->

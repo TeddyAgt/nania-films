@@ -15,12 +15,12 @@
     <p>&copy; Nania Films 2024</p>
 
     <nav class="footer-navigation">
-        <a href="index.php?action=about" class="footer-navigation__link" title="Qui sommes nous ?">Qui sommes nous</a>
-        <a href="index.php?action=productions" class="footer-navigation__link" title="Voir nos réalisations">Réalisations</a>
-        <a href="index.php?action=news" class="footer-navigation__link" title="Voir les films en cours de production">Actus</a>
-        <a href="index.php?action=memories" class="footer-navigation__link" title="Voir les souvenirs de tournage">Souvenirs</a>
-        <a href="index.php?action=business" class="footer-navigation__link" title="Nos services">Entreprises</a>
-        <a href="index.php?action=contact" class="footer-navigation__link" title="Contactez-nous">Contact</a>
-        <a href="index.php?action=legals" class="footer-navigation__link">Mentions légales</a>
+        <a href="index.php?c=about" class="footer-navigation__link" title="Qui sommes nous ?">Qui sommes nous</a>
+        <a href="index.php?c=posts&action=productions" class="footer-navigation__link" title="Voir nos réalisations">Réalisations</a>
+        <a href="index.php?c=posts&action=news" class="footer-navigation__link" title="Voir les films en cours de production">Actus</a>
+        <a href="index.php?c=posts&action=memories" class="footer-navigation__link" title="Voir les souvenirs de tournage">Souvenirs</a>
+        <a href="index.php?c=business" class="footer-navigation__link" title="Nos services">Entreprises</a>
+        <a href="index.php?c=contact" class="footer-navigation__link" title="Contactez-nous">Contact</a>
+        <a href="index.php?c=home&action=legals" class="footer-navigation__link">Mentions légales</a>
     </nav>
 </footer>

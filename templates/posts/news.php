@@ -13,7 +13,7 @@
                 <p class="movie-article__details details"><?= $production->content->details; ?></p>
                 <p><?= $production->content->text; ?></p>
                 <a
-                    href="index.php?=action=production&id=<?= $production->id; ?>"
+                    href="index.php?=c=posts&action=production&id=<?= $production->id; ?>"
                     class="btn btn--primary">Voir la fiche
                 </a>
             </div>
@@ -24,7 +24,7 @@
         <p>
             <?php for ($i = 1; $i <= $pageContent["news"]["nb_pages"]; $i++) : ?>
                 <a
-                    href="index.php?action=productions&p=<?= $i; ?>#news"
+                    href="index.php?c=posts&action=productions&p=<?= $i; ?>#news"
                     class="paging__link <?= $pageContent["news"]["current_page"] === $i
                                             ? "paging__link--inactive"
                                             : ""; ?>"><?= $i ?></a><?= $i < $pageContent["news"]["nb_pages"] ? ", " : ""; ?>

@@ -12,11 +12,11 @@
             <img src="public/assets/icons/close-white.svg" aria-hidden="true" alt="">
         </button>
 
-        <a href="index.php?action=about" class="main-navigation__link <?= $action === "about" ? "main-navigation__link--active" : ""; ?>" title="Qui sommes nous ?">Qui sommes nous</a>
-        <a href="index.php?action=productions" class="main-navigation__link <?= $action === "productions" ? "main-navigation__link--active" : ""; ?>" title="Voir nos réalisations">Réalisations</a>
-        <a href="index.php?action=news" class="main-navigation__link <?= $action === "news" ? "main-navigation__link--active" : ""; ?>" title="Voir les films en cours de production">Actus</a>
-        <a href="index.php?action=memories" class="main-navigation__link <?= $action === "memories" ? "main-navigation__link--active" : ""; ?>" title="Voir les souvenirs de tournage">Souvenirs</a>
-        <a href="index.php?action=business" class="main-navigation__link <?= $action === "business" ? "main-navigation__link--active" : ""; ?>" title="Nos services">Entreprises</a>
-        <a href="index.php?action=contact" class="main-navigation__link <?= $action === "contact" ? "main-navigation__link--active" : ""; ?>" title="Contactez-nous">Contact</a>
+        <a href="index.php?c=about" class="main-navigation__link <?= $action === "about" ? "main-navigation__link--active" : ""; ?>" title="Qui sommes nous ?">Qui sommes nous</a>
+        <a href="index.php?c=posts&action=productions" class="main-navigation__link <?= $action === "productions" ? "main-navigation__link--active" : ""; ?>" title="Voir nos réalisations">Réalisations</a>
+        <a href="index.php?c=posts&action=news" class="main-navigation__link <?= $action === "news" ? "main-navigation__link--active" : ""; ?>" title="Voir les films en cours de production">Actus</a>
+        <a href="index.php?c=posts&action=memories" class="main-navigation__link <?= $action === "memories" ? "main-navigation__link--active" : ""; ?>" title="Voir les souvenirs de tournage">Souvenirs</a>
+        <a href="index.php?c=business" class="main-navigation__link <?= $action === "business" ? "main-navigation__link--active" : ""; ?>" title="Nos services">Entreprises</a>
+        <a href="index.php?c=home&action=contact" class="main-navigation__link <?= $action === "contact" ? "main-navigation__link--active" : ""; ?>" title="Contactez-nous">Contact</a>
     </nav>
 </header>

@@ -8,14 +8,14 @@ use App\Models\Productions;
 
 class Home
 {
-    public function index($action)
+    public function index($action = "")
     {
         $css = '<link rel="stylesheet" href="public/css/index.css">';
         $title = "Accueil";
         $hero = [
             "background" => "home.mp4",
             "text" => "Raconter de belles histoires",
-            "cta" => '<a href="index.php?action=productions" class="btn btn--primary btn--hero">Réalisations</a>'
+            "cta" => '<a href="index.php?c=posts&action=productions" class="btn btn--primary btn--hero">Réalisations</a>'
         ];
         $lastProductions = (new Productions())->findLasts(2, true);
         $lastNews = (new InProgress())->findLasts(2, true);
@@ -26,7 +26,7 @@ class Home
         require ROOT . "/templates/page-with-hero.php";
     }
 
-    public function contact($action)
+    public function contact($action = "contact")
     {
         $css = '<link rel="stylesheet" href="public/css/contact.css">';
         $title = "Contact";
@@ -38,7 +38,7 @@ class Home
         require ROOT . "/templates/hero-only-page.php";
     }
 
-    public function legals($action)
+    public function legals($action = "legals")
     {
         $css = '<link rel="stylesheet" href="public/css/legals.css">';
         $title = "Mentions légales";

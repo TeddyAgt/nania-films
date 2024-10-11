@@ -10,7 +10,7 @@ use App\Models\Replays;
 
 class Posts
 {
-    public function productions(string $action, int $filmPage = 1, int $replayPage = 1)
+    public function productions(int $filmPage = 1, int $replayPage = 1, string $action = "productions")
     {
         $productionsModel = new Productions();
         $replaysModel = new Replays();
@@ -33,7 +33,7 @@ class Posts
         require ROOT . "/templates/no-hero-page.php";
     }
 
-    public function news(string $action, int $page = 1)
+    public function news(int $page = 1, string $action = "news")
     {
         $newsModel = new InProgress();
         $css = '<link rel="stylesheet" href="public/css/productions.css">';
@@ -50,7 +50,7 @@ class Posts
         require ROOT . "/templates/no-hero-page.php";
     }
 
-    public function memories(string $action)
+    public function memories(string $action = "memories")
     {
         $css = '<link rel="stylesheet" href="public/css/memories.css">';
         $title = "Souvenirs de tournage";

@@ -19,7 +19,8 @@ class Router
     public function start()
     {
         $uriParams = $this->parseURI();
-        if (($controller = ucfirst(array_shift($uriParams)))) {
+        if (isset($uriParams["c"])) {
+            $controller = ucfirst(array_shift($uriParams));
             $controller = "\\App\\Controllers\\$controller";
             if (class_exists($controller)) {
                 $controller = new $controller();
@@ -35,13 +36,14 @@ class Router
                 throw new ControllerNotFoundExcption();
             }
         } else {
-            (new Home())->index();
+            (new Home())->index("");
         }
     }
 
     private function parseURI(): array
     {
-        $uriArray = explode("=", $_SERVER["QUERY_STRING"]);
+
+        $uriArray = (isset($_SERVER["QUERY_STRING"])) ? explode("&", $_SERVER["QUERY_STRING"]) : [];
 
         $uriParams = [];
         foreach ($uriArray as $queryString) {
