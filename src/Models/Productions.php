@@ -12,6 +12,7 @@ class Productions extends Posts
     }
 
     // Methods ******************************
+
     public function findLasts(int $n, bool $active = false): array
     {
         $filter = $active ? "AND status = 1" : "";

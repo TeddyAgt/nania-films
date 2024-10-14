@@ -24,8 +24,8 @@
         <p>
             <?php for ($i = 1; $i <= $pageContent["news"]["nb_pages"]; $i++) : ?>
                 <a
-                    href="index.php?c=posts&action=productions&p=<?= $i; ?>#news"
-                    class="paging__link <?= $pageContent["news"]["current_page"] === $i
+                    href="index.php?c=posts&action=news&p=<?= $i; ?>#news"
+                    class="paging__link <?= $pageContent["news"]["current_page"] == $i
                                             ? "paging__link--inactive"
                                             : ""; ?>"><?= $i ?></a><?= $i < $pageContent["news"]["nb_pages"] ? ", " : ""; ?>
             <?php endfor; ?>

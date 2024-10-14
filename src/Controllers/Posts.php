@@ -10,8 +10,11 @@ use App\Models\Replays;
 
 class Posts
 {
-    public function productions(int $filmPage = 1, int $replayPage = 1, string $action = "productions")
+    public function productions(int $f = 1, int $r = 1, string $action = "productions")
     {
+        $filmPage = filter_var($f, FILTER_SANITIZE_NUMBER_INT) ?? 1;
+        $replayPage = filter_var($r, FILTER_SANITIZE_NUMBER_INT) ?? 1;
+
         $productionsModel = new Productions();
         $replaysModel = new Replays();
         $css = '<link rel="stylesheet" href="public/css/productions.css">';
@@ -33,8 +36,19 @@ class Posts
         require ROOT . "/templates/no-hero-page.php";
     }
 
-    public function news(int $page = 1, string $action = "news")
+    public function production(int $id, string $action = "production")
     {
+        $production = (new Productions())->find($id);
+        $title = $production->title;
+        $css = '<link rel="stylesheet" href="public/css/production.css">';
+        $javascript = "";
+        $view = "posts/production.php";
+        require ROOT . "/templates/no-hero-page.php";
+    }
+
+    public function news(int $p = 1, string $action = "news")
+    {
+        $page = filter_var($p, FILTER_SANITIZE_NUMBER_INT) ?? 1;
         $newsModel = new InProgress();
         $css = '<link rel="stylesheet" href="public/css/productions.css">';
         $title = "Productions en cours";
