@@ -41,7 +41,7 @@ class Posts
         $production = (new Productions())->find($id);
         $title = $production->title;
         $css = '<link rel="stylesheet" href="public/css/production.css">';
-        $javascript = "";
+        $javascript = '<script src="public/js/production.js"></script>';
         $view = "posts/production.php";
         require ROOT . "/templates/no-hero-page.php";
     }

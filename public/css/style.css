@@ -515,11 +515,15 @@ header {
     font-weight: 600;
     max-width: 740px;
     margin-bottom: 24px;
+    cursor: default;
+    user-select: none;
 }
 
 .hero-section__text {
     font-weight: 600;
     max-width: 530px;
+    cursor: default;
+    user-select: none;
 }
 
 .hero-section .btn {

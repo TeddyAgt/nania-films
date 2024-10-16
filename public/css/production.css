@@ -64,3 +64,73 @@ video {
         width: 100%;
     }
 }
+
+/* Carousel */
+.carousel-container {
+    position: relative;
+    margin: 0 auto;
+    overflow: hidden;
+    max-width: fit-content;
+    /* width: fit-content; */
+    height: fit-content;
+    display: grid;
+    box-shadow: var(--shadow-light);
+}
+
+.carousel__direction-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 4;
+    width: 64px;
+    height: 64px;
+    border: none;
+    background: none;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: opacity 0.2s ease-out;
+}
+
+.carousel__direction-btn:hover {
+    opacity: 0.75;
+}
+
+.carousel__direction-btn img {
+    width: 100%;
+    pointer-events: none;
+}
+
+.carousel__direction-btn--left {
+    left: 0;
+}
+
+.carousel__direction-btn--right {
+    right: 0;
+}
+
+.carousel__slide {
+    grid-area: 1 / 1 / 2 / 2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 8px 8px;
+    display: none;
+}
+
+.carousel__slide--active {
+    display: flex;
+}
+
+.carousel__picture {
+    max-width: 500px;
+    width: 100%;
+}
+
+@media screen and (max-width: 500px) {
+    .carousel__direction-btn {
+        width: 32px;
+        height: 32px;
+    }
+}

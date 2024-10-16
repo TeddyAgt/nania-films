@@ -218,3 +218,10 @@
 .carousel__picture {
     width: 100%;
 }
+
+@media screen and (max-width: 500px) {
+    .carousel__direction-btn {
+        width: 32px;
+        height: 32px;
+    }
+}

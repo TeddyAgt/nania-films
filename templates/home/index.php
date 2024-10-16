@@ -76,14 +76,16 @@
     <ul class="memories-list">
         <?php foreach ($lastMemories as $memory) : ?>
             <li class="memories-list__item">
-                <img
-                    src="public/assets/images/pictures/<?= $memory->content->medias[0]->name; ?>"
-                    alt=""
-                    class="memories-item__img">
-                <div class="memories-item__overlay" data-memo-id="<?= $memory->id; ?>">
-                    <h2 class="memories-item__title"><?= $memory->title; ?></h2>
-                    <p class="memories-item__date"><?= date_format(date_create($memory->creation_date), "d/m/Y"); ?></p>
-                </div>
+                <a href="index.php?c=posts&action=memories">
+                    <img
+                        src="public/assets/images/pictures/<?= $memory->content->medias[0]->name; ?>"
+                        alt=""
+                        class="memories-item__img">
+                    <div class="memories-item__overlay" data-memo-id="<?= $memory->id; ?>">
+                        <h2 class="memories-item__title"><?= $memory->title; ?></h2>
+                        <p class="memories-item__date"><?= date_format(date_create($memory->creation_date), "d/m/Y"); ?></p>
+                    </div>
+                </a>
             </li>
         <?php endforeach; ?>
     </ul>

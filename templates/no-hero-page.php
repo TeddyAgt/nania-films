@@ -10,7 +10,8 @@
         <?php require_once ROOT . "/templates/$view"; ?>
     </main>
 
-    <?php require_once ROOT . "/templates/includes/footer.php"; ?>
+    <?php require_once ROOT . "/templates/includes/footer.php";
+    echo isset($javascript) ? $javascript : ""; ?>
     <script src="public/js/app.js"></script>
 </body>
 
